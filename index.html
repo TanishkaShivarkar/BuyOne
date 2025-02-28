@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>product-card</title>
+    <style>
+        body{
+            background-color: #ffe6ee;
+            margin: 0;
+            padding: 0;
+        }
+        .container{
+            border: 1px solid #990033;
+            width: 400px;
+            margin: 0 auto; 
+            border-radius: 5px;
+            padding: 10px 20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            margin-top: 50px;
+            background-color: #fff  ;
+        }
+        .lipstick{
+            height: 200px;
+            display: block;
+            margin: 20px auto  ; 
+        }
+        .product-name{
+            text-align: center;
+            color: #990033;
+        }
+         .btn-quantity{
+            height: 30px;
+            cursor: pointer;
+         }
+
+        .btn-add-cart{
+            font-size: 20px;
+            padding: 10px 20px;
+            display: block;
+            margin: 20px auto;
+            background-color:#990033 ;
+            color: #fff ;
+            border: none ;
+            cursor: pointer;
+            border-radius: 3px;
+              
+        }
+
+        .quantity-container{
+            display: flex; 
+            justify-content: center;
+            align-items: center ;
+        }
+
+        .quantity-text{
+            font-size: 45px;
+            margin: 0 40px;
+        }
+
+        @media screen and (max-width: 500px){
+       .container{
+        width: 80%;
+       }
+    }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="lipstick.png" class="lipstick"id="lipstick">
+        <h1 class="product-name">Matt Lipstick</h1>  
+        <p>
+            Velvet-smooth matte finish. Long-lasting color that stays put, no dryness.Its non-glossy texture provides a smooth, elegant look without shine.
+        </p> 
+          
+        <h2>Price : ₹ 450/- </h2>
+
+        <div class="quantity-container">
+           <img src="minus.png" class="btn-quantity" id="minus" onclick="decrease() ">
+
+           <span class="quantity-text" id="quantity-text">1</span>
+
+           <img src="plus.png" class="btn-quantity" id="plus" onclick="increase()">
+        </div>
+
+        <button class="btn-add-cart">Add to Cart</button>
+    </div>
+    <script> 
+    const quantityText = document.getElementById('quantity-text');
+
+         function increase(){
+        let quantity = parseInt(quantityText.innerText)
+
+        if(quantity < 10){
+       quantityText.innerText = ++quantity; 
+        }
+        else{
+            alert("You can't add more than 10 items at a time.");
+        }
+         }
+
+         function decrease(){
+            let quantity = parseInt(quantityText.innerText)
+
+            if(quantity > 1){
+            quantityText.innerText = --quantity;
+            }
+            else{
+                alert("You can't decrease the quantity less than 1");
+            }
+         }
+    </script>
+</body>
+</html>   
